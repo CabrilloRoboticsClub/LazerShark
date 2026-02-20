@@ -1,0 +1,46 @@
+- name: Installing extra packages needed by LazerShark
+  apt:
+    name:
+      - ros-humble-tf2
+      - ros-humble-tf2-py
+      - ros-humble-tf2-ros
+      - ros-humble-tf2-ros-py
+      - docker.io
+      - build-essential 
+    state: present
+
+- name: Installing Python packages in your home directory with PIP
+  become: false
+  pip:
+    name:
+    - setuptools
+    - args
+    - clint
+    - pyftdi
+    - pyserial
+    - pyusb
+    - pip
+    # These are the ones installed on the 2025 LazerSkark. I think we installed them with apt tho
+    - opencv-python
+    - simple_pid
+    - numpy
+
+- name: Getting Gazebo packages
+  become: true
+  ansible.builtin.get_url:
+    url: https://packages.osrfoundation.org/gazebo.gpg
+    dest: /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+    owner: root
+    group: root
+    mode: 0644
+  when: ros_repos is failed
+
+- name: Installing Gazebo packages
+  apt:
+    - gz-harmonic
+    - ros-humble-ros-gzharmonic
+
+- name: Setup Gazebo 
+  hosts: all
+  environment:
+    ENV GZ_VERSION: "harmonic"

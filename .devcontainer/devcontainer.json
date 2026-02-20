@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "LazerSkarkTank",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "ghcr.io/cabrilloroboticsclub/LazerShark:devcontainer",
+	// "build": { "dockerfile": "Dockerfile" },
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "make devbox-install",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root",
+
+    // FIXME: vscode should handle this but doesn't. I have multiple GPUs and 
+	// using them is broken in devcontainers for me.
+	"mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        "type=bind,source=/dev/,target=/dev/,bind-propagation=shared"
+		// "type=bind,source=/dev/ttyUSB0,target=/dev/ttyUSB0"
+    ],
+
+	"runArgs": [
+		"--network=host", "-e", "DISPLAY=${localEnv:DISPLAY}",
+        "--privileged"
+	]
+}
