@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:22.04
+FROM docker.io/eprosima/vulcanexus:humble-desktop
 
 # Setup packages needed for `make devbox-install`
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -13,16 +13,6 @@ RUN cd /dev-setup \
 		--limit 127.0.0.1 devbox.yaml \
     && rm -rf /dev-setup \
     && apt clean 
-
-# Set the Timezone
-ENV TZ="America/Los_Angeles"
-RUN apt update -y && apt install -y tzdata \
-    && echo "America/Los_Angeles" > /etc/timezone \
-    && ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
-
-# Un-minimize the system so we have manual pages, etc.
-RUN yes | unminimize && \
-    apt install -y man
 
 ARG USERNAME=student
 ARG USER_UID=1000
@@ -43,13 +33,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 
-# FIXME: MICROROS???
-
 # FIXME: NOT SURE IF WE NEED THE FOLLOWING
 # Copy source for future tooling.
 # COPY --chown=$USERNAME:$USERNAME src/ /tmp/dep-repos/src 
 # WORKDIR /tmp/dep-repos 
 
 # WORKDIR /home/${USERNAME}
-#RUN sudo rm -rf /tmp/dep-repos 
+# RUN sudo rm -rf /tmp/dep-repos 
 # COPY .devcontainer/default.bashrc /home/${USERNAME}/.bashrc

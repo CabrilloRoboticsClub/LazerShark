@@ -13,7 +13,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "make devbox-install",
+	"postCreateCommand": "make devbox-install",
 
 	// Configure tool-specific properties.
 	// "customizations": {},

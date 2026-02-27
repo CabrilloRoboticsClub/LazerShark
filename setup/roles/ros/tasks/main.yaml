@@ -54,5 +54,6 @@
       - python3-rosdep2
       - python3-colcon-common-extensions
       - ros-humble-ros2bag 
+      - ros-humble-robot-localization
     state: present
     cache_valid_time: 86400

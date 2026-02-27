@@ -18,5 +18,4 @@
         - libnewlib-arm-none-eabi 
         - cmake 
         - doxygen 
-        - ros-humble-robot-localization
       state: present
