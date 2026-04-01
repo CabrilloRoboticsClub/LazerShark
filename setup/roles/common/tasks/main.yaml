@@ -1,4 +1,4 @@
-- name: Installing extra packages needed by LazerShark
+- name: Installing extra packages needed by LazerShark with apt.
   apt:
     name:
       - ros-humble-tf2
@@ -9,21 +9,22 @@
       - build-essential 
     state: present
 
-- name: Installing Python packages in your home directory with PIP
+- name: Installing Python packages in your home directory with pip.
   become: false
   pip:
     name:
-    - setuptools
-    - args
-    - clint
-    - pyftdi
-    - pyserial
-    - pyusb
-    - pip
-    # These are the ones installed on the 2025 LazerSkark. I think we installed them with apt tho
-    - opencv-python
-    - simple_pid
-    - numpy
+      - setuptools
+      - args
+      - clint
+      - pyftdi
+      - pyserial
+      - pyusb
+      - pip
+      - opencv-python
+      - simple-pid
+      - numpy
+      - git+https://github.com/CabrilloRoboticsClub/naviguider_simpleserial.git
+      - git+https://github.com/CabrilloRoboticsClub/targetpoint_lib.git
 
 # - name: Getting Gazebo packages
 #   become: true

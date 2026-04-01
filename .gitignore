@@ -7,3 +7,4 @@ eeprom.bin
 mav.*
 *.pcd
 *.pyc
+*.egg-info/
