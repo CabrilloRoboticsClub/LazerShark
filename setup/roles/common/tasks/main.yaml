@@ -23,8 +23,8 @@
       - opencv-python
       - simple-pid
       - numpy
-      - git+https://github.com/CabrilloRoboticsClub/naviguider_simpleserial.git
-      - git+https://github.com/CabrilloRoboticsClub/targetpoint_lib.git
+      # - git+https://github.com/CabrilloRoboticsClub/naviguider_simpleserial.git
+      # - git+https://github.com/CabrilloRoboticsClub/targetpoint_lib.git
 
 # - name: Getting Gazebo packages
 #   become: true
