@@ -47,8 +47,9 @@ setup(
             'pytest',
         ],
     },
-    # entry_points={
-    #     'console_scripts': [
-    #     ],
-    # },
+    entry_points={
+        'console_scripts': [
+            "targetpoint=auv.sensors.targetpoint:main"
+        ],
+    },
 )
