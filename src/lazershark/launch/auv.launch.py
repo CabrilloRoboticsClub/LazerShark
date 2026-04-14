@@ -40,7 +40,21 @@ def generate_launch_description() -> LaunchDescription:
                 executable='static_transform_publisher',
                 arguments=tf
             ) 
-        for tf in json_tf2_parser.get_tf_arg_list("static_component_tf2.json")]
+        for tf in json_tf2_parser.get_tf_arg_list("static_component_tf2.json")],
+
+        Node(
+            package='lazershark',
+            executable='targetpoint',
+            name='targetpoint0',
+            output='screen',
+            parameters=[{
+                "dev":      "/dev/ttyUSB0",
+                "frame_id":  "targetpoint0"
+            }],
+            remappings=[
+                ("imu/targetpoint", "imu/targetpoint0"),
+            ]
+        ),
     ]
 
     return LaunchDescription(nodes)
