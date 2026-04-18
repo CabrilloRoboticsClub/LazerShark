@@ -55,6 +55,20 @@ def generate_launch_description() -> LaunchDescription:
                 ("imu/targetpoint", "imu/targetpoint0"),
             ]
         ),
+
+        Node(
+            package='lazershark',
+            executable='naviguider',
+            name='naviguider0',
+            output='screen',
+            parameters=[{
+                "dev":      "/dev/ttyUSB0",
+                "frame_id":  "naviguider0"
+            }],
+            remappings=[
+                ("imu/naviguider0", "imu/naviguider0"),
+            ]
+        ),
     ]
 
     return LaunchDescription(nodes)
