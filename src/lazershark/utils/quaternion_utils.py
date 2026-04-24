@@ -45,10 +45,11 @@ class QuatUtils():
 class Ros2QuatConvert():
     # Change of basis matrix from NED coordinates to ENU coordinates
     NED_TO_ENU_MATRIX = np.array([
-                [0, 1,  0],
-                [1, 0,  0],
-                [0, 0, -1]
-            ])
+        [0, 1,  0],
+        [1, 0,  0],
+        [0, 0, -1]
+    ])
+
     NED_TO_ENU_QUAT = QuatUtils.create_change_of_basis_quat(NED_TO_ENU_MATRIX)
     ENU_TO_NED_QUAT = np.conjugate(NED_TO_ENU_QUAT)
 
@@ -101,7 +102,7 @@ class Ros2QuatConvert():
         elif type(quat_like) is Ros2Quat:
             return Ros2QuatConvert._ros2_to_numpy_quat(quat_like)
         elif type(quat_like) is list or type(quat_like) is tuple:
-            return NumpyQuat(*list)
+            return NumpyQuat(*quat_like)
         else:
             raise TypeError("Unrecognized quatlike")
 
