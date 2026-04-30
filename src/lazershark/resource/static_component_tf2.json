@@ -1,0 +1,33 @@
+{
+    "naviguider0": {
+        "frame_id": "base_link",
+        "child_frame_id": "naviguider0",
+        "translation": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "rotation":  {
+            "x": 0.0,
+            "y": 0.0, 
+            "z": 0.0,
+            "w": 0.0 
+        }
+    },
+
+    "targetpoint0": {
+        "frame_id": "base_link",
+        "child_frame_id": "targetpoint0",
+        "translation": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+        },
+        "rotation":  {
+            "x": 0.0,
+            "y": 0.0, 
+            "z": 0.0,
+            "w": 0.0 
+        }
+    }
+}
