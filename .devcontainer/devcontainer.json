@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "LazerSkarkTank",
+	"name": "LazerSharkTank",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/cabrilloroboticsclub/LazerShark:devcontainer",
+	"image": "ghcr.io/cabrilloroboticsclub/lazershark:devcontainer",
 	// "build": { "dockerfile": "Dockerfile" },
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -13,7 +13,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "make devbox-install",
+	"postCreateCommand": "make devbox-install; echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc", 
 
 	// Configure tool-specific properties.
 	// "customizations": {},
