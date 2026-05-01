@@ -13,7 +13,7 @@
   become: false
   pip:
     name:
-      - setuptools==82.0.1
+      - setuptools==59.6.0
       - args==0.1.0
       - clint==0.5.1
       - pyftdi==0.57.1
