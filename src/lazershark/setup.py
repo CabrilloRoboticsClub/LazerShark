@@ -53,6 +53,7 @@ setup(
         'console_scripts': [
             "targetpoint=auv.sensors.targetpoint:main",
             "naviguider=auv.sensors.naviguider:main",
+            "a50=auv.sensors.a50:main",
         ],
     },
 )

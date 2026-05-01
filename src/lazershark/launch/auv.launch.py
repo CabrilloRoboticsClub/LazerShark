@@ -1,7 +1,7 @@
 """
 auv.launch.py
 
-Launches ROS nodes for LazerShark AUV
+Launches Ros2 nodes for LazerShark AUV
 
 Copyright (C) 2026-2027 Cabrillo Robotics Club
 
@@ -68,6 +68,18 @@ def generate_launch_description() -> LaunchDescription:
             remappings=[
                 ("imu/naviguider0", "imu/naviguider0"),
             ]
+        ),
+
+        Node(
+            package='lazershark',
+            executable='a50',
+            name='a50',
+            output='screen',
+            parameters=[{
+                "TCP_IP":   "192.168.1.205",
+                "TCP_PORT": "16171",
+                "frame_id": "a50"
+            }]
         ),
     ]
 
